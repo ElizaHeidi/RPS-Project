@@ -8,22 +8,10 @@ function getComputerChoice() {
 console.log(getComputerChoice());
   // Computer randomly selects "rock," "paper," or "scissors" as its response
 
-/* rock is < paper;
-paper < scissors;
-scissors < rock; 
-let userInput ["rock", "paper", or "scissors"];
-let getComputerChoice = random("rock", "paper", or "scissors");
-if (userInput < getComputerChoice) {
-    return "You lose.";
-}
-else if (userInput > getComputerChoice) {
-    return "You win.";
-}
-*/
 
-let playerText = prompt("Rock, paper, or scissors?");
-let playerSelection = playerText.toLowerCase(); 
+let playerSelection = prompt("Rock, paper, or scissors?", "").toLowerCase();
 let computerSelection = getComputerChoice();
+
 
 
 function playRound(playerSelection, computerSelection) {
@@ -53,10 +41,17 @@ else if (playerSelection === "scissors" && computerSelection === "paper") {
 
 console.log(playRound(playerSelection, computerSelection));
 
-/* function game() {
+function game(){
+
     for (let i = 0; i < 5; i++) {
+        let computerSelection = getComputerChoice();
+        let playerSelection = prompt("Rock, paper, or scissors?", "").toLowerCase();
+        console.log(playRound(playerSelection, computerSelection));
         
-     }
-}
+    }
+    }
+    
+game();
+
 
 
