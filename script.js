@@ -21,37 +21,35 @@ else if (userInput > getComputerChoice) {
 }
 */
 
-// let playerText = "scissors";
-// let playerSelection = playerText.toLowerCase(); 
-// let computerSelection = getComputerChoice;
+let playerText = "scissors";
+let playerSelection = playerText.toLowerCase(); 
+let computerSelection = getComputerChoice();
 
-// function singleRound(playerSelection, computerSelection) {
-//     if (playerSelection === computerSelection) {
-//         return "tie.";
-//     }
-//     else if (playerSelection === "rock" && computerSelection === "paper") {
-//         return "you lose.";
-//     }
-//     else if (playerSelection === "rock" && computerSelection === "scissors") {
-//         return "you win.";
-//     }
-//     else if (playerSelection === "paper" && computerSelection === "scissors") {
-//         return "you lose.";
-//     }
-//     else if (playerSelection === "paper" && computerSelection === "rock") {
-//         return "you win.";
-//     }
-//     else if (playerSelection === "scissors" && computerSelection === "rock") {
-//         return "you lose.";
-//     }
-//     else if (playerSelection === "scissors" && computerSelection === "paper") {
-//         return "you win.";
-//     }
-//     else if (playerSelection === "rock" && computerSelection === "paper") {
-//         return "you lose.";
-//     }
-// }
-// console.log(singleRound(playerSelection, computerSelection));
+function singleRound(playerSelection, computerSelection) {
+if (playerSelection === computerSelection) {
+    return "tie.";
+}
+else if (playerSelection === "rock" && computerSelection === "paper") {
+    return "you lose. paper beats rock.";
+}
+else if (playerSelection === "rock" && computerSelection === "scissors") {
+    return "you win. rock beats scissors.";
+}
+else if (playerSelection === "paper" && computerSelection === "scissors") {
+    return "you lose. scissors beats paper.";
+}
+else if (playerSelection === "paper" && computerSelection === "rock") {
+    return "you win. paper beats rock.";
+}
+else if (playerSelection === "scissors" && computerSelection === "rock") {
+    return "you lose. rock beats scissors.";
+}
+else if (playerSelection === "scissors" && computerSelection === "paper") {
+    return "you win. paper beats scissors.";
+}
+}
+
+console.log(singleRound(playerSelection, computerSelection));
 
 
 
