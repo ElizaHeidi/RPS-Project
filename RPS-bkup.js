@@ -57,8 +57,6 @@ function game(){
         console.log(playRound(playerSelection, computerSelection));
         
     }
-    // Loops programme 5 times
-    
     if (playerScore > computerScore) {
         return "You won best of 5.";
     }
