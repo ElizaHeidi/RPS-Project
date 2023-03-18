@@ -10,13 +10,9 @@ function getComputerChoice() {
     const rps = ["rock", "paper", "scissors"];
     return rps[Math.floor(Math.random() * rps.length)];
 }
-// console.log(getComputerChoice());
   // Computer randomly selects "rock," "paper," or "scissors" as its response
 
   
-// let playerSelection = prompt("Rock, paper, or scissors?", "").toLowerCase();
-
-
 function playRound(playerSelection, computerSelection) {
    getComputerChoice();
    if (playerSelection === computerSelection) {
@@ -74,28 +70,26 @@ checkForWinner = (playerScore, computerScore) => {
     }
     }
 
-function game(){
+  
 
-   // for (let i = 0; i < 5; i++) {
-        let computerSelection = getComputerChoice();
-       // let playerSelection = prompt("Rock, paper, or scissors?", "").toLowerCase();
-        playRound(playerSelection, computerSelection);
-        
-    }
-    
-
-rbtn.addEventListener('click', function(e) {
-    playRound('rock', computerSelection);
+rbtn.addEventListener('click', () => {
+    const computerSelection = getComputerChoice(); 
+    const playerSelection = 'rock';
+    playRound(playerSelection, computerSelection);
     checkForWinner(playerScore, computerScore);
     }); 
 
-pbtn.addEventListener('click', function(e) {
-    playRound('paper', computerSelection);
+pbtn.addEventListener('click', () => {
+    const computerSelection = getComputerChoice(); 
+    const playerSelection = 'paper';
+    playRound(playerSelection, computerSelection);
     checkForWinner(playerScore, computerScore);
     });
 
-sbtn.addEventListener('click', function(e) {
-    playRound('scissors', computerSelection);
+sbtn.addEventListener('click', () => {
+    const computerSelection = getComputerChoice(); 
+    const playerSelection = 'scissors';
+    playRound(playerSelection, computerSelection);
     checkForWinner(playerScore, computerScore);
     });
 
