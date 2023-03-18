@@ -21,6 +21,8 @@ function playRound(round) {
     const computerSelection = getComputerChoice();
     console.log(computerSelection);
     const winner = checkWinner(playerSelection, computerSelection); // Who won that indiv game?
+    const p = document.createElement('p');
+    p.textContent = ''
     console.log(winner); 
     winners.push(winner); // stores winner of each game in array 
     logRound(playerSelection, computerSelection, winner, round)
