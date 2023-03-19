@@ -1,74 +1,139 @@
-
+let rbtn = document.querySelector('#rock');
+let pbtn = document.querySelector('#paper');
+let sbtn = document.querySelector('#scissors');
+let newgame = document.querySelector('#newgame');
+let body = document.querySelector('body');
+let resultsdiv = document.querySelector('#results');
 let playerScore = 0;
 let computerScore = 0;
+let computerSelection = getComputerChoice();
+const playerScoreSpan = document.querySelector('.player-score');  
+const computerScoreSpan = document.querySelector('.computer-score');  
 
 function getComputerChoice() {
     const rps = ["rock", "paper", "scissors"];
     return rps[Math.floor(Math.random() * rps.length)];
 }
-console.log(getComputerChoice());
   // Computer randomly selects "rock," "paper," or "scissors" as its response
 
-
-let playerSelection = prompt("Rock, paper, or scissors?", "").toLowerCase();
-let computerSelection = getComputerChoice();
-
-
-
+  
 function playRound(playerSelection, computerSelection) {
-if (playerSelection === computerSelection) {
-    return "tie.";
+   getComputerChoice();
+   if (playerSelection === computerSelection) {
+   const p = document.createElement('p');
+   // p.classList.add('');
+   p.textContent = "tie.";
+   playerScore++;
+   computerScore++;
+   resultsdiv.appendChild(p);
 }
 else if (playerSelection === "rock" && computerSelection === "paper") {
-    computerScore++
-    return "you lose. paper beats rock.";
+    computerScore++;
+    const p = document.createElement('p');
+    p.textContent = "you lose. paper beats rock.";
+    resultsdiv.appendChild(p);
 }
 else if (playerSelection === "rock" && computerSelection === "scissors") {
-    playerScore++
-    return "you win. rock beats scissors.";
+    playerScore++;
+    const p = document.createElement('p'); 
+    p.textContent = "you win. rock beats scissors.";
+    resultsdiv.appendChild(p);
 }
 else if (playerSelection === "paper" && computerSelection === "scissors") {
-    computerScore++
-    return "you lose. scissors beats paper.";
+    computerScore++;
+    const p = document.createElement('p');
+    p.textContent = "you lose. scissors beats paper.";
+    resultsdiv.appendChild(p);
 }
 else if (playerSelection === "paper" && computerSelection === "rock") {
-    playerScore++
-    return "you win. paper beats rock.";
+    playerScore++;
+    const p = document.createElement('p');
+    p.textContent = "you win. paper beats rock.";
+    resultsdiv.appendChild(p);
 }
 else if (playerSelection === "scissors" && computerSelection === "rock") {
-    computerScore++
-    return "you lose. rock beats scissors.";
+    computerScore++;
+    const p = document.createElement('p');
+    p.textContent = "you lose. rock beats scissors.";
+    resultsdiv.appendChild(p);
 }
 else if (playerSelection === "scissors" && computerSelection === "paper") {
-    playerScore++
-    return "you win. paper beats scissors.";
+    playerScore++;
+    const p = document.createElement('p');
+    p.textContent = "you win. paper beats scissors.";
+    resultsdiv.appendChild(p);
 }
 }
 
+const refreshPage = () => {
+    location.reload();
+  }
+  
+  newgame.addEventListener('click', refreshPage);
+
+checkForWinner = (playerScore, computerScore) => {
+    if (playerScore === 5) {
+        const p = document.createElement('p');
+        p.textContent = "You win! Click New Game to play again!";
+        resultsdiv.append(p);
+        rbtn.setAttribute("disabled", 1)
+        pbtn.setAttribute("disabled", 1)
+        sbtn.setAttribute("disabled", 1)
+    } 
+   else if (computerScore === 5) {
+        const p = document.createElement('p');
+        p.textContent = "Computer wins. Click New Game to play again!";
+        resultsdiv.appendChild(p);
+        rbtn.setAttribute("disabled", 1)
+        pbtn.setAttribute("disabled", 1)
+        sbtn.setAttribute("disabled", 1)
+    } 
+    else if (playerScore === 5 && computerScore === 5) {
+        const p = document.createElement('p');
+        p.textContent = "Tie game!. Click New Game to play again!";
+        resultsdiv.append(p);
+        rbtn.setAttribute("disabled", 1)
+        pbtn.setAttribute("disabled", 1)
+        sbtn.setAttribute("disabled", 1)
+    } 
+    }
+
+    const updateScores = (playerScore, computerScore) => {
+    playerScoreSpan.textContent = `Player Score:   ${playerScore}`;
+    computerScoreSpan.textContent = `Computer Score: ${computerScore}`;
+}
 
 
-console.log(playRound(playerSelection, computerSelection));
+rbtn.addEventListener('click', () => {
+    const computerSelection = getComputerChoice(); 
+    const playerSelection = 'rock';
+    playRound(playerSelection, computerSelection);
+    updateScores(playerScore, computerScore);
+    checkForWinner(playerScore, computerScore);
+    }); 
 
-function game(){
+pbtn.addEventListener('click', () => {
+    const computerSelection = getComputerChoice(); 
+    const playerSelection = 'paper';
+    playRound(playerSelection, computerSelection);
+    updateScores(playerScore, computerScore);
+    checkForWinner(playerScore, computerScore);
+    });
 
-    for (let i = 0; i < 5; i++) {
-        let computerSelection = getComputerChoice();
-        let playerSelection = prompt("Rock, paper, or scissors?", "").toLowerCase();
-        console.log(playRound(playerSelection, computerSelection));
-        
-    }
-    if (playerScore > computerScore) {
-        return "You won best of 5.";
-    }
-    else if (playerScore < computerScore) {
-        return "You lost best of 5."
-    }
-    else {
-        return "You tied best of 5."
-    }
-    }
-    
-console.log(game());
+sbtn.addEventListener('click', () => {
+    const computerSelection = getComputerChoice(); 
+    const playerSelection = 'scissors';
+    playRound(playerSelection, computerSelection);
+    updateScores(playerScore, computerScore);
+    checkForWinner(playerScore, computerScore);
+    });
+
+
+// console.log(playRound(playerSelection, computerSelection));
+
+
+
+
 
 
 
