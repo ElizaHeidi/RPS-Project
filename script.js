@@ -65,15 +65,6 @@ else if (playerSelection === "scissors" && computerSelection === "paper") {
 }
 }
 
-// function newButton(playerScore, computerScore) {
-//     if (playerScore + computerScore === 5) {
-//     const nbtn = document.createElement('button');
-//     const nt = document.createTextNode('New Game');
-//     nbtn.appendChild(nt);
-//     document.body.appendChild(ntbn);
-//     }    
-// }
-
 const refreshPage = () => {
     location.reload();
   }
@@ -81,22 +72,30 @@ const refreshPage = () => {
   newgame.addEventListener('click', refreshPage);
 
 checkForWinner = (playerScore, computerScore) => {
-        if (playerScore === 5) {
+    if (playerScore === 5) {
         const p = document.createElement('p');
-        p.textContent = "You win best of 5!";
+        p.textContent = "You win! Click New Game to play again!";
         resultsdiv.append(p);
+        rbtn.setAttribute("disabled", 1)
+        pbtn.setAttribute("disabled", 1)
+        sbtn.setAttribute("disabled", 1)
     } 
    else if (computerScore === 5) {
         const p = document.createElement('p');
-        p.textContent = "Computer wins, best of 5.";
+        p.textContent = "Computer wins. Click New Game to play again!";
         resultsdiv.appendChild(p);
+        rbtn.setAttribute("disabled", 1)
+        pbtn.setAttribute("disabled", 1)
+        sbtn.setAttribute("disabled", 1)
     } 
     else if (playerScore === 5 && computerScore === 5) {
         const p = document.createElement('p');
-        p.textContent = "Tied out of 5.";
+        p.textContent = "Tie game!. Click New Game to play again!";
         resultsdiv.append(p);
+        rbtn.setAttribute("disabled", 1)
+        pbtn.setAttribute("disabled", 1)
+        sbtn.setAttribute("disabled", 1)
     } 
-    newButton();
     }
 
     const updateScores = (playerScore, computerScore) => {
